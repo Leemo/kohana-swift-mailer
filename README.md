@@ -27,7 +27,7 @@ Email::instance()
   ->to('first.recipient@example.com')
   ->to('second.recipient@example.com', 'Mr. Recipient')
   ->subject('Hi there!')
-  ->body('Hi, guys! This is my awesome email.')
+  ->message('Hi, guys! This is my awesome email.')
   ->send();
 ~~~
 
