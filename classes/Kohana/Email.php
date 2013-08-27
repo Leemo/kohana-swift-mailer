@@ -12,8 +12,7 @@
  * @copyright (c) 2009-2013 Kohana Team
  * @license   http://kohanaphp.com/license.html
  */
-abstract class Kohana_Email
-{
+abstract class Kohana_Email {
 	/**
 	 * Default instance name
 	 *

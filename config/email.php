@@ -28,7 +28,7 @@ return array(
 		 */
 		'options' => NULL,
 		/**
-		 * Translate subject, name.
+		 * Translate subject, name
 		 */
 		'i18n' => FALSE,
 	),

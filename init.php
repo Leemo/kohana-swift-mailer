@@ -8,4 +8,5 @@ function smarty_autoload($class)
 		require_once 'vendor'.DS.'swiftmailer'.DS.'swift_required'.EXT;
 	}
 }
+
 spl_autoload_register('swiftmailer_autoload');
