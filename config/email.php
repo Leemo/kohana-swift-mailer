@@ -1,16 +1,13 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
-return array
-(
-	'default' => array
-	(
+return array(
+	'default' => array(
 		/**
 		 * SwiftMailer driver, used with the email module.
 		 *
 		 * Valid drivers are: native, sendmail, smtp
 		 */
 		'driver'  => 'native',
-
 		/**
 		 * To use secure connections with SMTP, set "port" to 465 instead of 25.
 		 * To enable TLS, set "encryption" to "tls".
@@ -29,6 +26,10 @@ return array
 		 * @param   string  sendmail: executable path, with -bs or equivalent attached
 		 * @param   array   smtp: hostname, (username), (password), (port), (encryption)
 		 */
-		'options' => NULL
-	)
+		'options' => NULL,
+		/**
+		 * Translate subject, name
+		 */
+		'i18n' => FALSE,
+	),
 );
