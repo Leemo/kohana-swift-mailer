@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 // SwiftMailer autoloader
-function sswiftmailer_autoload($class)
+function swiftmailer_autoload($class)
 {
 	if ($class == 'Swift_Mailer')
 	{
