@@ -56,14 +56,14 @@ class Kohana_Email {
 					->as_array();
 			}
 
-			if ( ! isset($config[$name]))
+			if ( ! isset($config[$name]) && ! isset($config[Email::$default]))
 			{
 				throw new Kohana_Exception(':name configuration is not defined',
 					array(':name' => $name));
 			}
 
 			// Store the email instance
-			Email::$instances[$name] = new Email($name, $config[$name]);
+			Email::$instances[$name] = new Email($name, (isset($config[$name]) ? $config[$name] : $config[Email::$default]));
 		}
 
 		return Email::$instances[$name];
