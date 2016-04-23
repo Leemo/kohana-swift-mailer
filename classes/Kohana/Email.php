@@ -316,6 +316,27 @@ class Kohana_Email {
 
 		return $this;
 	}
+        
+	/**
+	 * Email attachments
+	 *
+	 * @var string
+	 */
+	protected $_attachments = [];
+
+	/**
+	 * Add attachment do message
+	 *
+	 * @param  string $name name of the file in message attachment
+	 * @param  string $path local path to atachment
+	 * @return Email
+	 */
+	public function attachment($name, $path)
+	{
+		$this->_attachments[$path] = $name;
+
+		return $this;
+	}
 
 	/**
 	 * Sends prepared email
@@ -329,6 +350,14 @@ class Kohana_Email {
 
 		$message = Swift_Message::newInstance($this->_subject, $this->_message, $html, 'utf-8')
 			->setFrom($this->_from);
+                
+                if(count($this->_attachments) > 0)
+                {
+                    foreach ($this->_attachments as $path => $name)
+                    {
+                        $message->attach(Swift_Attachment::fromPath($path)->setFilename($name));
+                    }
+                }
 
 		foreach (array('to', 'cc', 'bcc') as $param)
 		{
