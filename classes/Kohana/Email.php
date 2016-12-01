@@ -295,6 +295,12 @@ class Kohana_Email {
 	 */
 	protected $_message;
 
+  /*
+   * Email message text content
+   * @var string
+   */
+  protected $_text;
+
 	/**
 	 * Message type identifier
 	 *
@@ -306,13 +312,15 @@ class Kohana_Email {
 	 * Specifies the email message
 	 *
 	 * @param  string  $message
-	 * @param  boolean $html
+   * @param  boolean $html
+   * @param  string  $text
 	 * @return Email
 	 */
-	public function message($message, $html = FALSE)
+	public function message($message, $html = FALSE, $text = NULL)
 	{
 		$this->_message = $message;
-		$this->_html    = (bool) $html;
+    $this->_html    = (bool) $html;
+    $this->_text    = $text;
 
 		return $this;
 	}
@@ -344,6 +352,10 @@ class Kohana_Email {
 		{
 			$message->setReplyTo($this->_reply_to);
 		}
+
+    if($this->_html && !empty($this->_text)){
+      $message->addPart($this->_text, 'text/plain');
+    }
 
 		// Send message
 		$this->_connection->send($message);
