@@ -121,8 +121,8 @@ class Kohana_Email {
 				if ( ! empty($config['options']['encryption']))
 				{
 					// Set encryption
-					$transport->setEncryption($config['options']['encryption'])
-						->setStreamOptions(array('ssl' => array('verify_peer' => FALSE, 'verify_peer_name' => FALSE)));
+					$transport->setEncryption($config['options']['encryption']);
+//						->setStreamOptions(array('ssl' => array('verify_peer' => FALSE, 'verify_peer_name' => FALSE)));
 				}
 
 				// Do authentication, if part of the DSN
